@@ -10,17 +10,15 @@ const Journal = () => {
   }, [location]);
   return (
     <div className="max-w-container mx-auto px-4">
-      <Breadcrumbs title="Journals" prevLocation={prevLocation} />
+      <Breadcrumbs title="Tạp chí" prevLocation={prevLocation} />
       <div className="pb-10">
         <h1 className="max-w-[600px] text-base text-lightText mb-2">
           <span className="text-primeColor font-semibold text-lg">Orebi</span>{" "}
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-          reiciendis delectus vitae, aliquid sit iure dolorum commodi eum
-          numquam voluptate!
+          là nơi bạn có thể tìm thấy những bài viết chuyên sâu về xu hướng thời trang và phong cách sống. Chúng tôi cam kết mang đến những nội dung bổ ích và truyền cảm hứng, giúp bạn khám phá và thể hiện cá tính của mình một cách tự tin. Hãy cùng khám phá những chủ đề thú vị và làm mới phong cách của bạn mỗi ngày!
         </h1>
         <Link to="/shop">
           <button className="w-52 h-10 bg-primeColor text-white hover:bg-black duration-300">
-            Continue Shopping
+            Tiếp tục mua sắm
           </button>
         </Link>
       </div>
