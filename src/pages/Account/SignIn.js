@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 import { logoLight } from "../../assets/images";
 
 const SignIn = () => {
-  // ============= Initial State Start here =============
+  // ============= Trạng thái khởi tạo bắt đầu từ đây =============
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // ============= Initial State End here ===============
-  // ============= Error Msg Start here =================
+  // ============= Trạng thái khởi tạo kết thúc ở đây =============
+  // ============= Thông báo lỗi bắt đầu từ đây ===================
   const [errEmail, setErrEmail] = useState("");
   const [errPassword, setErrPassword] = useState("");
 
-  // ============= Error Msg End here ===================
+  // ============= Thông báo lỗi kết thúc ở đây ===================
   const [successMsg, setSuccessMsg] = useState("");
-  // ============= Event Handler Start here =============
+  // ============= Xử lý sự kiện bắt đầu từ đây ===================
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setErrEmail("");
@@ -23,21 +23,21 @@ const SignIn = () => {
     setPassword(e.target.value);
     setErrPassword("");
   };
-  // ============= Event Handler End here ===============
+  // ============= Xử lý sự kiện kết thúc ở đây ===================
   const handleSignUp = (e) => {
     e.preventDefault();
 
     if (!email) {
-      setErrEmail("Enter your email");
+      setErrEmail("Vui lòng nhập email của bạn");
     }
 
     if (!password) {
-      setErrPassword("Create a password");
+      setErrPassword("Vui lòng tạo mật khẩu");
     }
-    // ============== Getting the value ==============
+    // ============== Xử lý giá trị ====================
     if (email && password) {
       setSuccessMsg(
-        `Hello dear, Thank you for your attempt. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
+        `Xin chào bạn, cảm ơn vì đã thử. Chúng tôi đang xử lý để xác minh quyền truy cập của bạn. Hãy giữ liên lạc và các hỗ trợ bổ sung sẽ được gửi đến email của bạn tại ${email}`
       );
       setEmail("");
       setPassword("");
@@ -52,9 +52,9 @@ const SignIn = () => {
           </Link>
           <div className="flex flex-col gap-1 -mt-1">
             <h1 className="font-titleFont text-xl font-medium">
-              Stay sign in for more
+              Đăng nhập để nhận thêm nhiều lợi ích
             </h1>
-            <p className="text-base">When you sign in, you are with us!</p>
+            <p className="text-base">Khi bạn đăng nhập, bạn là một phần của chúng tôi!</p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
             <span className="text-green-500 mt-1">
@@ -62,10 +62,10 @@ const SignIn = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Get started fast with OREBI
+                Bắt đầu nhanh chóng với OREBI
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis
               nisi dolor recusandae consectetur!
             </p>
           </div>
@@ -75,10 +75,10 @@ const SignIn = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Access all OREBI services
+                Truy cập tất cả các dịch vụ của OREBI
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis
               nisi dolor recusandae consectetur!
             </p>
           </div>
@@ -88,10 +88,10 @@ const SignIn = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Trusted by online Shoppers
+                Được tin cậy bởi người mua sắm trực tuyến
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis
               nisi dolor recusandae consectetur!
             </p>
           </div>
@@ -102,13 +102,13 @@ const SignIn = () => {
               </p>
             </Link>
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              Terms
+              Điều khoản
             </p>
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              Privacy
+              Quyền riêng tư
             </p>
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              Security
+              Bảo mật
             </p>
           </div>
         </div>
@@ -124,7 +124,7 @@ const SignIn = () => {
                 className="w-full h-10 bg-primeColor text-gray-200 rounded-md text-base font-titleFont font-semibold 
             tracking-wide hover:bg-black hover:text-white duration-300"
               >
-                Sign Up
+                Đăng ký
               </button>
             </Link>
           </div>
@@ -132,13 +132,13 @@ const SignIn = () => {
           <form className="w-full lgl:w-[450px] h-screen flex items-center justify-center">
             <div className="px-6 py-4 w-full h-[90%] flex flex-col justify-center overflow-y-scroll scrollbar-thin scrollbar-thumb-primeColor">
               <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-3xl mdl:text-4xl mb-4">
-                Sign in
+                Đăng nhập
               </h1>
               <div className="flex flex-col gap-3">
                 {/* Email */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Work Email
+                    Email công việc
                   </p>
                   <input
                     onChange={handleEmail}
@@ -158,14 +158,14 @@ const SignIn = () => {
                 {/* Password */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Password
+                    Mật khẩu
                   </p>
                   <input
                     onChange={handlePassword}
                     value={password}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="password"
-                    placeholder="Create password"
+                    placeholder="Tạo mật khẩu"
                   />
                   {errPassword && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -179,13 +179,13 @@ const SignIn = () => {
                   onClick={handleSignUp}
                   className="bg-primeColor hover:bg-black text-gray-200 hover:text-white cursor-pointer w-full text-base font-medium h-10 rounded-md  duration-300"
                 >
-                  Sign In
+                  Đăng nhập
                 </button>
                 <p className="text-sm text-center font-titleFont font-medium">
-                  Don't have an Account?{" "}
+                  Bạn chưa có tài khoản?{" "}
                   <Link to="/signup">
                     <span className="hover:text-blue-600 duration-300">
-                      Sign up
+                      Đăng ký
                     </span>
                   </Link>
                 </p>
