@@ -13,15 +13,21 @@ const HeaderBottom = () => {
   const [showUser, setShowUser] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
+  
   useEffect(() => {
-    document.body.addEventListener("click", (e) => {
-      if (ref.current.contains(e.target)) {
+    const handleClickOutside = (e) => {
+      if (ref.current && ref.current.contains(e.target)) {
         setShow(true);
       } else {
         setShow(false);
       }
-    });
-  }, [show, ref]);
+    };
+
+    document.body.addEventListener("click", handleClickOutside);
+    return () => {
+      document.body.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -105,9 +111,7 @@ const HeaderBottom = () => {
                               item: item,
                             },
                           }
-                        ) &
-                        setShowSearchBar(true) &
-                        setSearchQuery("")
+                        ) & setShowSearchBar(true) & setSearchQuery("")
                       }
                       key={item._id}
                       className="max-w-[600px] h-28 bg-gray-100 mb-3 flex items-center gap-3"
