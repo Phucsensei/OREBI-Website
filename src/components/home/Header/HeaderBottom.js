@@ -54,7 +54,7 @@ const HeaderBottom = () => {
             className="flex h-14 cursor-pointer items-center gap-2 text-primeColor"
           >
             <HiOutlineMenuAlt4 className="w-5 h-5" />
-            <p className="text-[14px] font-normal">Shop by Category</p>
+            <p className="text-[14px] font-normal">Mua sắm theo danh mục</p>
 
             {show && (
               <motion.ul
@@ -64,22 +64,22 @@ const HeaderBottom = () => {
                 className="absolute top-36 z-50 bg-primeColor w-auto text-[#767676] h-auto p-4 pb-6"
               >
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Accessories
+                  Phụ kiện
                 </li>
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Furniture
+                  Nội thất
                 </li>
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Electronics
+                  Điện tử
                 </li>
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Clothes
+                  Quần áo
                 </li>
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400  hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Bags
+                  Túi xách
                 </li>
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400  hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Home appliances
+                  Đồ gia dụng
                 </li>
               </motion.ul>
             )}
@@ -90,7 +90,7 @@ const HeaderBottom = () => {
               type="text"
               onChange={handleSearch}
               value={searchQuery}
-              placeholder="Search your products here"
+              placeholder="Tìm kiếm sản phẩm của bạn tại đây"
             />
             <FaSearch className="w-5 h-5" />
             {searchQuery && (
@@ -123,7 +123,7 @@ const HeaderBottom = () => {
                         </p>
                         <p className="text-xs">{item.des}</p>
                         <p className="text-sm">
-                          Price:{" "}
+                          Giá:{" "}
                           <span className="text-primeColor font-semibold">
                             ${item.price}
                           </span>
@@ -148,19 +148,19 @@ const HeaderBottom = () => {
               >
                 <Link to="/signin">
                   <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                    Login
+                    Đăng nhập
                   </li>
                 </Link>
                 <Link onClick={() => setShowUser(false)} to="/signup">
                   <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                    Sign Up
+                    Đăng ký
                   </li>
                 </Link>
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400 hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Profile
+                  Hồ sơ
                 </li>
                 <li className="text-gray-400 px-4 py-1 border-b-[1px] border-b-gray-400  hover:border-b-white hover:text-white duration-300 cursor-pointer">
-                  Others
+                  Khác
                 </li>
               </motion.ul>
             )}

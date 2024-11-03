@@ -96,7 +96,7 @@ const Header = () => {
                         onClick={() => setCategory(!category)}
                         className="flex justify-between text-base cursor-pointer items-center font-titleFont mb-2"
                       >
-                        Shop by Category{" "}
+                        Mua theo danh mục{" "}
                         <span className="text-lg">{category ? "-" : "+"}</span>
                       </h1>
                       {category && (
@@ -106,11 +106,11 @@ const Header = () => {
                           transition={{ duration: 0.4 }}
                           className="text-sm flex flex-col gap-1"
                         >
-                          <li className="headerSedenavLi">New Arrivals</li>
-                          <li className="headerSedenavLi">Gudgets</li>
-                          <li className="headerSedenavLi">Accessories</li>
-                          <li className="headerSedenavLi">Electronics</li>
-                          <li className="headerSedenavLi">Others</li>
+                          <li className="headerSedenavLi">Hàng mới về</li>
+                          <li className="headerSedenavLi">Tiện ích</li>
+                          <li className="headerSedenavLi">Phụ kiện</li>
+                          <li className="headerSedenavLi">Điện tử</li>
+                          <li className="headerSedenavLi">Khác</li>
                         </motion.ul>
                       )}
                     </div>
@@ -119,7 +119,7 @@ const Header = () => {
                         onClick={() => setBrand(!brand)}
                         className="flex justify-between text-base cursor-pointer items-center font-titleFont mb-2"
                       >
-                        Shop by Brand
+                        Mua theo thương hiệu
                         <span className="text-lg">{brand ? "-" : "+"}</span>
                       </h1>
                       {brand && (
@@ -129,11 +129,11 @@ const Header = () => {
                           transition={{ duration: 0.4 }}
                           className="text-sm flex flex-col gap-1"
                         >
-                          <li className="headerSedenavLi">New Arrivals</li>
-                          <li className="headerSedenavLi">Gudgets</li>
-                          <li className="headerSedenavLi">Accessories</li>
-                          <li className="headerSedenavLi">Electronics</li>
-                          <li className="headerSedenavLi">Others</li>
+                          <li className="headerSedenavLi">Hàng mới về</li>
+                          <li className="headerSedenavLi">Tiện ích</li>
+                          <li className="headerSedenavLi">Phụ kiện</li>
+                          <li className="headerSedenavLi">Điện tử</li>
+                          <li className="headerSedenavLi">Khác</li>
                         </motion.ul>
                       )}
                     </div>
