@@ -13,11 +13,11 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [messages, setMessages] = useState("");
 
-  // ========== Error Messages Start here ============
+  // ========== Thông báo lỗi bắt đầu từ đây ============
   const [errClientName, setErrClientName] = useState("");
   const [errEmail, setErrEmail] = useState("");
   const [errMessages, setErrMessages] = useState("");
-  // ========== Error Messages End here ==============
+  // ========== Thông báo lỗi kết thúc ở đây ==============
   const [successMsg, setSuccessMsg] = useState("");
 
   const handleName = (e) => {
@@ -33,57 +33,57 @@ const Contact = () => {
     setErrMessages("");
   };
 
-  // ================= Email Validation start here =============
+  // ================= Xác thực email bắt đầu từ đây =============
   const EmailValidation = (email) => {
     return String(email)
       .toLowerCase()
       .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
   };
-  // ================= Email Validation End here ===============
+  // ================= Xác thực email kết thúc ở đây ===============
 
   const handlePost = (e) => {
     e.preventDefault();
     if (!clientName) {
-      setErrClientName("Enter your Name");
+      setErrClientName("Vui lòng nhập tên của bạn");
     }
     if (!email) {
-      setErrEmail("Enter your Email");
+      setErrEmail("Vui lòng nhập email của bạn");
     } else {
       if (!EmailValidation(email)) {
-        setErrEmail("Enter a Valid Email");
+        setErrEmail("Vui lòng nhập email hợp lệ");
       }
     }
     if (!messages) {
-      setErrMessages("Enter your Messages");
+      setErrMessages("Vui lòng nhập tin nhắn của bạn");
     }
     if (clientName && email && EmailValidation(email) && messages) {
       setSuccessMsg(
-        `Thank you dear ${clientName}, Your messages has been received successfully. Futher details will sent to you by your email at ${email}.`
+        `Cảm ơn bạn ${clientName}, Tin nhắn của bạn đã được nhận thành công. Thông tin chi tiết sẽ được gửi đến email của bạn tại ${email}.`
       );
     }
   };
 
   return (
     <div className="max-w-container mx-auto px-4">
-      <Breadcrumbs title="Contact" prevLocation={prevLocation} />
+      <Breadcrumbs title="Liên hệ" prevLocation={prevLocation} />
       {successMsg ? (
         <p className="pb-20 w-96 font-medium text-green-500">{successMsg}</p>
       ) : (
         <form className="pb-20">
           <h1 className="font-titleFont font-semibold text-3xl">
-            Fill up a Form
+            Điền vào mẫu
           </h1>
           <div className="w-[500px] h-auto py-6 flex flex-col gap-6">
             <div>
               <p className="text-base font-titleFont font-semibold px-2">
-                Name
+                Tên
               </p>
               <input
                 onChange={handleName}
                 value={clientName}
                 className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor"
                 type="text"
-                placeholder="Enter your name here"
+                placeholder="Nhập tên của bạn"
               />
               {errClientName && (
                 <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
@@ -101,7 +101,7 @@ const Contact = () => {
                 value={email}
                 className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor"
                 type="email"
-                placeholder="Enter your name here"
+                placeholder="Nhập email của bạn"
               />
               {errEmail && (
                 <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
@@ -112,7 +112,7 @@ const Contact = () => {
             </div>
             <div>
               <p className="text-base font-titleFont font-semibold px-2">
-                Messages
+                Tin nhắn
               </p>
               <textarea
                 onChange={handleMessages}
@@ -121,7 +121,7 @@ const Contact = () => {
                 rows="3"
                 className="w-full py-1 border-b-2 px-2 text-base font-medium placeholder:font-normal placeholder:text-sm outline-none focus-within:border-primeColor resize-none"
                 type="text"
-                placeholder="Enter your name here"
+                placeholder="Nhập tin nhắn của bạn"
               ></textarea>
               {errMessages && (
                 <p className="text-red-500 text-sm font-titleFont font-semibold mt-1 px-2 flex items-center gap-1">
@@ -134,7 +134,7 @@ const Contact = () => {
               onClick={handlePost}
               className="w-44 bg-primeColor text-gray-200 h-10 font-titleFont text-base tracking-wide font-semibold hover:bg-black hover:text-white duration-200"
             >
-              Post
+              Gửi
             </button>
           </div>
         </form>
