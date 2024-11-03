@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { logoLight } from "../../assets/images";
 
 const SignUp = () => {
-  // ============= Initial State Start here =============
+  // ============= Trạng thái khởi tạo bắt đầu từ đây =============
   const [clientName, setClientName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -14,8 +14,8 @@ const SignUp = () => {
   const [country, setCountry] = useState("");
   const [zip, setZip] = useState("");
   const [checked, setChecked] = useState(false);
-  // ============= Initial State End here ===============
-  // ============= Error Msg Start here =================
+  // ============= Trạng thái khởi tạo kết thúc ở đây =============
+  // ============= Thông báo lỗi bắt đầu từ đây ===================
   const [errClientName, setErrClientName] = useState("");
   const [errEmail, setErrEmail] = useState("");
   const [errPhone, setErrPhone] = useState("");
@@ -24,9 +24,9 @@ const SignUp = () => {
   const [errCity, setErrCity] = useState("");
   const [errCountry, setErrCountry] = useState("");
   const [errZip, setErrZip] = useState("");
-  // ============= Error Msg End here ===================
+  // ============= Thông báo lỗi kết thúc ở đây ===================
   const [successMsg, setSuccessMsg] = useState("");
-  // ============= Event Handler Start here =============
+  // ============= Xử lý sự kiện bắt đầu từ đây ===================
   const handleName = (e) => {
     setClientName(e.target.value);
     setErrClientName("");
@@ -59,51 +59,51 @@ const SignUp = () => {
     setZip(e.target.value);
     setErrZip("");
   };
-  // ============= Event Handler End here ===============
-  // ================= Email Validation start here =============
+  // ============= Xử lý sự kiện kết thúc ở đây ===================
+  // ================= Xác thực email bắt đầu từ đây ================
   const EmailValidation = (email) => {
     return String(email)
       .toLowerCase()
       .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
   };
-  // ================= Email Validation End here ===============
+  // ================= Xác thực email kết thúc ở đây ================
 
   const handleSignUp = (e) => {
     e.preventDefault();
     if (checked) {
       if (!clientName) {
-        setErrClientName("Enter your name");
+        setErrClientName("Vui lòng nhập tên của bạn");
       }
       if (!email) {
-        setErrEmail("Enter your email");
+        setErrEmail("Vui lòng nhập email của bạn");
       } else {
         if (!EmailValidation(email)) {
-          setErrEmail("Enter a Valid email");
+          setErrEmail("Vui lòng nhập email hợp lệ");
         }
       }
       if (!phone) {
-        setErrPhone("Enter your phone number");
+        setErrPhone("Vui lòng nhập số điện thoại của bạn");
       }
       if (!password) {
-        setErrPassword("Create a password");
+        setErrPassword("Vui lòng tạo mật khẩu");
       } else {
         if (password.length < 6) {
-          setErrPassword("Passwords must be at least 6 characters");
+          setErrPassword("Mật khẩu phải có ít nhất 6 ký tự");
         }
       }
       if (!address) {
-        setErrAddress("Enter your address");
+        setErrAddress("Vui lòng nhập địa chỉ của bạn");
       }
       if (!city) {
-        setErrCity("Enter your city name");
+        setErrCity("Vui lòng nhập tên thành phố của bạn");
       }
       if (!country) {
-        setErrCountry("Enter the country you are residing");
+        setErrCountry("Vui lòng nhập quốc gia bạn đang sinh sống");
       }
       if (!zip) {
-        setErrZip("Enter the zip code of your area");
+        setErrZip("Vui lòng nhập mã bưu điện của khu vực bạn");
       }
-      // ============== Getting the value ==============
+      // ============== Lấy giá trị ====================
       if (
         clientName &&
         email &&
@@ -116,7 +116,7 @@ const SignUp = () => {
         zip
       ) {
         setSuccessMsg(
-          `Hello dear ${clientName}, Welcome you to OREBI Admin panel. We received your Sign up request. We are processing to validate your access. Till then stay connected and additional assistance will be sent to you by your mail at ${email}`
+          `Xin chào ${clientName}, Chào mừng bạn đến với OREBI Admin panel. Chúng tôi đã nhận được yêu cầu đăng ký của bạn. Chúng tôi đang xử lý để xác minh quyền truy cập của bạn. Hãy giữ liên lạc và các hỗ trợ bổ sung sẽ được gửi đến email của bạn tại ${email}`
         );
         setClientName("");
         setEmail("");
@@ -138,9 +138,9 @@ const SignUp = () => {
           </Link>
           <div className="flex flex-col gap-1 -mt-1">
             <h1 className="font-titleFont text-xl font-medium">
-              Get started for free
+              Bắt đầu miễn phí
             </h1>
-            <p className="text-base">Create your account to access more</p>
+            <p className="text-base">Tạo tài khoản của bạn để truy cập thêm</p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
             <span className="text-green-500 mt-1">
@@ -148,10 +148,10 @@ const SignUp = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Get started fast with OREBI
+                Bắt đầu nhanh chóng với OREBI
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis
               nisi dolor recusandae consectetur!
             </p>
           </div>
@@ -161,10 +161,10 @@ const SignUp = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Access all OREBI services
+                Truy cập tất cả các dịch vụ của OREBI
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis
               nisi dolor recusandae consectetur!
             </p>
           </div>
@@ -174,10 +174,10 @@ const SignUp = () => {
             </span>
             <p className="text-base text-gray-300">
               <span className="text-white font-semibold font-titleFont">
-                Trusted by online Shoppers
+                Được tin cậy bởi người mua sắm trực tuyến
               </span>
               <br />
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab omnis
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis
               nisi dolor recusandae consectetur!
             </p>
           </div>
@@ -186,13 +186,13 @@ const SignUp = () => {
               © OREBI
             </p>
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              Terms
+              Điều khoản
             </p>
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              Privacy
+              Quyền riêng tư
             </p>
             <p className="text-sm font-titleFont font-semibold text-gray-300 hover:text-white cursor-pointer duration-300">
-              Security
+              Bảo mật
             </p>
           </div>
         </div>
@@ -208,7 +208,7 @@ const SignUp = () => {
                 className="w-full h-10 bg-primeColor rounded-md text-gray-200 text-base font-titleFont font-semibold 
             tracking-wide hover:bg-black hover:text-white duration-300"
               >
-                Sign in
+                Đăng nhập
               </button>
             </Link>
           </div>
@@ -216,20 +216,20 @@ const SignUp = () => {
           <form className="w-full lgl:w-[500px] h-screen flex items-center justify-center">
             <div className="px-6 py-4 w-full h-[96%] flex flex-col justify-start overflow-y-scroll scrollbar-thin scrollbar-thumb-primeColor">
               <h1 className="font-titleFont underline underline-offset-4 decoration-[1px] font-semibold text-2xl mdl:text-3xl mb-4">
-                Create your account
+                Tạo tài khoản của bạn
               </h1>
               <div className="flex flex-col gap-3">
-                {/* client name */}
+                {/* Tên khách hàng */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Full Name
+                    Họ và tên
                   </p>
                   <input
                     onChange={handleName}
                     value={clientName}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="eg. John Doe"
+                    placeholder="Ví dụ: Nguyễn Văn A"
                   />
                   {errClientName && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -241,14 +241,14 @@ const SignUp = () => {
                 {/* Email */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Work Email
+                    Email công việc
                   </p>
                   <input
                     onChange={handleEmail}
                     value={email}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="email"
-                    placeholder="john@workemail.com"
+                    placeholder="nguyen@congty.com"
                   />
                   {errEmail && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -257,17 +257,17 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
-                {/* Phone Number */}
+                {/* Số điện thoại */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Phone Number
+                    Số điện thoại
                   </p>
                   <input
                     onChange={handlePhone}
                     value={phone}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="008801234567891"
+                    placeholder="0912345678"
                   />
                   {errPhone && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -276,17 +276,17 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
-                {/* Password */}
+                {/* Mật khẩu */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Password
+                    Mật khẩu
                   </p>
                   <input
                     onChange={handlePassword}
                     value={password}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="password"
-                    placeholder="Create password"
+                    placeholder="Tạo mật khẩu"
                   />
                   {errPassword && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -295,17 +295,17 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
-                {/* Address */}
+                {/* Địa chỉ */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Address
+                    Địa chỉ
                   </p>
                   <input
                     onChange={handleAddress}
                     value={address}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="road-001, house-115, example area"
+                    placeholder="Đường số 1, phường A, quận B"
                   />
                   {errAddress && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -314,17 +314,17 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
-                {/* City */}
+                {/* Thành phố */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    City
+                    Thành phố
                   </p>
                   <input
                     onChange={handleCity}
                     value={city}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your city"
+                    placeholder="Thành phố của bạn"
                   />
                   {errCity && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -333,17 +333,17 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
-                {/* Country */}
+                {/* Quốc gia */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Country
+                    Quốc gia
                   </p>
                   <input
                     onChange={handleCountry}
                     value={country}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your country"
+                    placeholder="Quốc gia của bạn"
                   />
                   {errCountry && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -352,17 +352,17 @@ const SignUp = () => {
                     </p>
                   )}
                 </div>
-                {/* Zip code */}
+                {/* Mã bưu điện */}
                 <div className="flex flex-col gap-.5">
                   <p className="font-titleFont text-base font-semibold text-gray-600">
-                    Zip/Postal code
+                    Mã bưu điện
                   </p>
                   <input
                     onChange={handleZip}
                     value={zip}
                     className="w-full h-8 placeholder:text-sm placeholder:tracking-wide px-4 text-base font-medium placeholder:font-normal rounded-md border-[1px] border-gray-400 outline-none"
                     type="text"
-                    placeholder="Your country"
+                    placeholder="Mã bưu điện"
                   />
                   {errZip && (
                     <p className="text-sm text-red-500 font-titleFont font-semibold px-4">
@@ -379,9 +379,9 @@ const SignUp = () => {
                     type="checkbox"
                   />
                   <p className="text-sm text-primeColor">
-                    I agree to the OREBI{" "}
-                    <span className="text-blue-500">Terms of Service </span>and{" "}
-                    <span className="text-blue-500">Privacy Policy</span>.
+                    Tôi đồng ý với{" "}
+                    <span className="text-blue-500">Điều khoản dịch vụ </span>và{" "}
+                    <span className="text-blue-500">Chính sách bảo mật</span> của OREBI.
                   </p>
                 </div>
                 <button
@@ -392,13 +392,13 @@ const SignUp = () => {
                       : "bg-gray-500 hover:bg-gray-500 hover:text-gray-200 cursor-none"
                   } w-full text-gray-200 text-base font-medium h-10 rounded-md hover:text-white duration-300`}
                 >
-                  Create Account
+                  Tạo tài khoản
                 </button>
                 <p className="text-sm text-center font-titleFont font-medium">
-                  Don't have an Account?{" "}
+                  Bạn đã có tài khoản?{" "}
                   <Link to="/signin">
                     <span className="hover:text-blue-600 duration-300">
-                      Sign in
+                      Đăng nhập
                     </span>
                   </Link>
                 </p>
