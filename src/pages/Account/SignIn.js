@@ -1,20 +1,17 @@
 import React, { useState } from "react";
 import { BsCheckCircleFill } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { logoLight } from "../../assets/images";
 
 const SignIn = () => {
-  // ============= Trạng thái khởi tạo bắt đầu từ đây =============
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // ============= Trạng thái khởi tạo kết thúc ở đây =============
-  // ============= Thông báo lỗi bắt đầu từ đây ===================
   const [errEmail, setErrEmail] = useState("");
   const [errPassword, setErrPassword] = useState("");
-
-  // ============= Thông báo lỗi kết thúc ở đây ===================
   const [successMsg, setSuccessMsg] = useState("");
-  // ============= Xử lý sự kiện bắt đầu từ đây ===================
+
+  const navigate = useNavigate(); // Hook điều hướng
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
     setErrEmail("");
@@ -23,7 +20,7 @@ const SignIn = () => {
     setPassword(e.target.value);
     setErrPassword("");
   };
-  // ============= Xử lý sự kiện kết thúc ở đây ===================
+
   const handleSignUp = (e) => {
     e.preventDefault();
 
@@ -34,15 +31,23 @@ const SignIn = () => {
     if (!password) {
       setErrPassword("Vui lòng tạo mật khẩu");
     }
-    // ============== Xử lý giá trị ====================
+
     if (email && password) {
+      // Giả lập thành công đăng nhập
       setSuccessMsg(
-        `Xin chào bạn, cảm ơn vì đã thử. Chúng tôi đang xử lý để xác minh quyền truy cập của bạn. Hãy giữ liên lạc và các hỗ trợ bổ sung sẽ được gửi đến email của bạn tại ${email}`
+        `Xin chào bạn, cảm ơn vì đã thử. Chúng tôi đang xử lý để xác minh quyền truy cập của bạn.`
       );
+
+      // Chuyển hướng đến trang chủ sau khi đăng nhập thành công
+      setTimeout(() => {
+        navigate("/home"); // Đường dẫn tới trang chủ
+      }, 2000); // Thời gian chờ để hiển thị thông báo thành công
+
       setEmail("");
       setPassword("");
     }
   };
+
   return (
     <div className="w-full h-screen flex items-center justify-center">
       <div className="w-1/2 hidden lgl:inline-flex h-full text-white">
@@ -65,8 +70,6 @@ const SignIn = () => {
                 Bắt đầu nhanh chóng với OREBI
               </span>
               <br />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
             </p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
@@ -78,8 +81,6 @@ const SignIn = () => {
                 Truy cập tất cả các dịch vụ của OREBI
               </span>
               <br />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
             </p>
           </div>
           <div className="w-[300px] flex items-start gap-3">
@@ -91,8 +92,6 @@ const SignIn = () => {
                 Được tin cậy bởi người mua sắm trực tuyến
               </span>
               <br />
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab omnis
-              nisi dolor recusandae consectetur!
             </p>
           </div>
           <div className="flex items-center justify-between mt-10">
@@ -119,14 +118,6 @@ const SignIn = () => {
             <p className="w-full px-4 py-10 text-green-500 font-medium font-titleFont">
               {successMsg}
             </p>
-            <Link to="/signup">
-              <button
-                className="w-full h-10 bg-primeColor text-gray-200 rounded-md text-base font-titleFont font-semibold 
-            tracking-wide hover:bg-black hover:text-white duration-300"
-              >
-                Đăng ký
-              </button>
-            </Link>
           </div>
         ) : (
           <form className="w-full lgl:w-[450px] h-screen flex items-center justify-center">
